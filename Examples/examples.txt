@@ -1,0 +1,5 @@
+These are the results of 1 billion (1E9) iterations at various temperatures. There is also a picture of a random orientation to show what the initial condition looks like. Even though there is an enormous amount of states (A small 10x10 array of dipoles has on the order of 1E21 states), 1 billion iterations are sufficient to produce an accurate result due to the nature of the algorithm used. 
+
+The simulations show that as temperature increases, the amount of random thermal motion in the material also increases. After a certain temperature (2.27, the critical temperature for a two-dimensional Ising model), the effect of thermal motion on the orientation of the particles overtakes the effect that the spins have, and the net magnetization of the material becomes zero. As the temperature increases further, the magnetic domains disappear, and the orientation of the dipoles becomes random.
+
+To perform 1 billion iterations took about 5 minutes on an Intel Core i3 processor running at 2.4GHz.
