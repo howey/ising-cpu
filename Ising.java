@@ -39,7 +39,8 @@ class Ising {
         int row, col;
         for (row = 0; row < SIZE; row++) {
             for (col = 0; col < SIZE; col++) {
-                ferro[row][col] = random(); //Random orientation, either 1 or -1
+                //ferro[row][col] = random(); //Random orientation, either 1 or -1
+                ferro[row][col] = 1; 
             }
         }
 
@@ -134,13 +135,9 @@ class Ising {
                 ferro[row][col] *= -1;
             }
             i++;
-            //Print every 500000th frame of the iteration
-            if (i % 500000 == 0) {
-                printImage(i, T);
-            }
-
         }
         printImage(i, T);
+	System.out.println("M = " + magnetization());
     }
 
     /**
@@ -150,5 +147,16 @@ class Ising {
      */
     public static int random() {
         return (int) Math.pow(-1, randGen.nextInt(2)); //Either -1^0 or -1^1
+    }
+
+    public static double magnetization() {
+	    double magnetization = 0;
+	    for(int i = 0; i < SIZE; i++) {
+		    for(int j = 0; j < SIZE; j++) {
+			    magnetization += ferro[i][j];
+		    }
+	    }
+	    magnetization /= (SIZE * SIZE);
+	    return magnetization;
     }
 }
