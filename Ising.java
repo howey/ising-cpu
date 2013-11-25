@@ -19,17 +19,13 @@ class Ising {
             BufferedImage.TYPE_INT_RGB);
 
     public static void main(String[] args) {
-        int n = 0;
-        double T = 1;
-        try {
-            n = Integer.parseInt(args[0]); //The number of iterations
-            T = Double.parseDouble(args[1]); //The temperature, units of ε/k
-        } catch (Exception e) {
-            System.out.println("Usage: Ising.jar [number of iterations] [temperature]");
-            System.exit(0);
-        }
-        initializeArray(); //Randomize the array
-        simulate(n, T); //Perform the simulation on the array
+        int n = 100000000;
+        double T = 0.0;
+        for(T = 0.0; T < 3.0; T += 0.1) {
+		initializeArray(); //Randomize the array
+		System.out.print(T + " ");
+		simulate(n, T); //Perform the simulation on the array
+    	}
     }
 
     /**
